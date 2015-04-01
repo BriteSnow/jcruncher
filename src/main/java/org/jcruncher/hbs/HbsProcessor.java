@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import jdk.nashorn.api.scripting.ScriptObjectMirror;
 import org.jcruncher.Util;
 import org.jcruncher.Processor;
 import org.jsoup.Jsoup;
@@ -31,7 +32,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.nio.file.Files.newBufferedReader;
 
 /**
- * Heavily inspired from https://github.com/asual/lesscss-engine 
+ * Inspired from https://github.com/asual/lesscss-engine
  *
  **/
 public class HbsProcessor implements Processor {
@@ -42,23 +43,32 @@ public class HbsProcessor implements Processor {
         return instance;
     }
 
-	private static final String        JS_ROOT    = "jcruncher/hbs/";
+	private static final String HBS_ROOT = "jcruncher/hbs/";
 
-	private Object jsHandlebars;
+	private ScriptObjectMirror jsHandlebars;
 	private Invocable invocable;
 
 	public HbsProcessor(){
 
 		Path basePath = Util.getClasspathBasePath();
-		Path hbsPath = basePath.resolve(JS_ROOT + "handlebars.js");
+		Path envPath = basePath.resolve(HBS_ROOT + "env.js");
+		Path hbsPath = basePath.resolve(HBS_ROOT + "handlebars.js");
 
+		// create the nashorn engine
 		ScriptEngineManager engineManager = new ScriptEngineManager();
 		ScriptEngine engine = engineManager.getEngineByName("nashorn");
 		invocable = (Invocable) engine;
 
+
+
 		try {
+			// eval the env.js to set the global js object(s) that Handlebars is expecting
+			engine.eval(newBufferedReader(envPath, UTF_8));
+			// load the handlebars library.
 			engine.eval(newBufferedReader(hbsPath, UTF_8));
-			jsHandlebars = engine.eval("Handlebars");
+
+			// get the Handlebars JS object for future references
+			jsHandlebars = (ScriptObjectMirror) engine.eval("Handlebars");
 		} catch (ScriptException e) {
 			throw new RuntimeException("Fail to init HbsProcessor because of script exception: " + e.getMessage());
 		} catch (IOException e) {
@@ -166,7 +176,7 @@ public class HbsProcessor implements Processor {
         System.out.println("DONE");
     }
 
-    private String precompile(String template) {
+    public String precompile(String template) {
         try {
             Object templateFunc = invocable.invokeMethod(jsHandlebars, "precompile", template);
             return templateFunc.toString();
