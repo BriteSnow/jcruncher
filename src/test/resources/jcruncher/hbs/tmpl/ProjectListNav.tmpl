@@ -1,0 +1,16 @@
+<script id="tmpl-ProjectListNav" type="text/html">
+  <div class="ProjectListNav">
+    <h2>Projects</h2>
+    <div class="list-container">
+
+    </div>
+  </div>
+</script>
+
+<script id="tmpl-ProjectListNav-list" type="text/html">
+  <ul>
+    {{#each projects}}
+    <li data-entity="Project" data-entity-id="{{id}}"><i class="icon-folder-close"></i>{{title}}</li>
+    {{/each}}
+  </ul>  
+</script>

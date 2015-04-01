@@ -1,0 +1,24 @@
+# ignore test
+test-css/
+test-tmpl/
+test-js/
+
+# ignore maven stuff
+bin/
+target/
+
+# ignore mac stuff
+.DS_Store
+
+# ignore eclipse stuff
+.classpath
+.project
+
+
+# ignore intellij stuff
+.idea/
+*.iml
+
+# ignore sublime stuff
+*.sublime-project
+*.sublime-workspace

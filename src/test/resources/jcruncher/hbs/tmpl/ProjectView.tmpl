@@ -1,0 +1,57 @@
+<script id="tmpl-ProjectView" type="text/html">
+  <div class="ProjectView">
+    <div class="card">
+      <div class="card-face card-front">
+        <header>
+          <h2>{{project.title}}</h2>
+          <div class="header-setting" data-action='editMode'><i class="icon-edit" style="opacity:.5"></i></div>
+        </header>
+        <section class="heading">
+          <label>Tasks</label>
+          <div class="del"><i class="icon-trash"></i></div>
+        </section>
+        <section class="content">      
+          The sub content
+        </section>
+      </div> <!-- /.card-front -->
+      
+      <div class="card-face card-back">
+        
+      </div>
+    </div> <!-- /.card -->
+  </div>
+</script>
+
+
+<script id="tmpl-ProjectView-taskList" type="text/html">
+  <table class="table">
+    <tbody>
+      {{#each tasks}}
+      <tr data-entity="Task" data-entity-id="{{id}}" {{#if done}}class="done"{{/if}}>
+        <td class="check">
+          <div class="taskCheck {{#if done}}done{{/if}}" data-prop="done"></div>
+        </td>
+        <td class="title"><input data-prop="title" value="{{title}}" />
+          <i class="del-ico icon-ban-circle"></i>
+        </td>
+      </tr>
+      {{/each}}
+      
+      <tr class="newTask">
+        <td class="check"></td>
+        <td class="title">
+          <input data-prop="title" placeholder="Enter new task" type="input" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</script>
+
+<script id="tmpl-ProjectView-delControls" type="text/html">
+  <div class="delete-controls">
+    <div class="delete-controls-inner">
+      <div class="btn btn-small btn-danger" data-action="delete">Delete (0)</div>
+      <div class="btn btn-small" data-action="cancel">Cancel</div>
+    </div>
+  </div>
+</script>

@@ -1,0 +1,25 @@
+<script id="tmpl-ProjectEdit" type="text/html">
+<div class="ProjectEdit">
+   <header>dd
+      <h2>Editing</h2>
+   </header>
+   <section class="content withPadding">
+      <div class="ProjectEdit-form form">
+        <legend>Editing Project</legend>
+        <div class="control-group">
+          <label class="control-label">Name</label>
+          <div class="controls">
+            <input type="text" data-prop="title" value="{{project.title}}">
+          </div>
+        </div>
+      </div>     
+   </section>
+   
+   <section class="footer">
+     <center>
+        <button  data-action="ok" class="btn btn-small btn-primary">OK</button> 
+        <button data-action="cancel" class="btn btn-small">Cancel</button>
+      </center> 
+   </section>
+</div>
+</script>
