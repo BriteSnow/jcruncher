@@ -6,15 +6,6 @@ Simple Java 8 library as well as command line (i.e. executable jar) to compile l
 
 [jcruncherEx download &amp; documentation](http://jcruncher.org/)
 
-## Support and License
-Currently support: 
-- lesscss 1.7.5 (unfortunately 2.x has been a major refactoring which will take some time to add nashorn support)
-- handlebars 2.0 (currently working on supporting 3.0.0)
-
-Licensed under the Apache License, Version 2.0 (the "License"): http://www.apache.org/licenses/LICENSE-2.0
-
-Lesscss resource loading and exception handling come mostly from https://github.com/asual/lesscss-engine
-
 #### Building the executable jar
 
 To build this library as a exectable jar (i.e. jcruncherEx.jar), use the following maven command:
@@ -22,6 +13,16 @@ To build this library as a exectable jar (i.e. jcruncherEx.jar), use the followi
 ```
 mvn clean compile assembly:single
 ```
+
+## Support and License
+Currently support: 
+- lesscss 1.7.5 (unfortunately 2.x has been a major refactoring which will take some time to add nashorn support)
+- handlebars 2.0 (currently working on supporting 3.0.0)
+
+Licensed under the Apache License, Version 2.0 (the "License"): http://www.apache.org/licenses/LICENSE-2.0
+
+Lesscss resource loading and exception handling java code come mostly from https://github.com/asual/lesscss-engine
+
 
 
 ## As Library
