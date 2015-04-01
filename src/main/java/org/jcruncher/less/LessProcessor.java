@@ -57,8 +57,8 @@ public class LessProcessor implements Processor {
 
                                                   };
 
-    private static final String        JS_ROOT    = "jcruncher/less/";
-    // private static final String JS_ROOT = "META-INF/";
+    private static final String LESS_ROOT = "jcruncher/less/";
+    // private static final String LESS_ROOT = "META-INF/";
     private static final String        CHARSET    = "UTF-8";
     
     private ScriptObjectMirror compileFunc;
@@ -70,9 +70,10 @@ public class LessProcessor implements Processor {
 
 			Path basePath = Util.getClasspathBasePath();
 			//System.out.println("basePath .... " + basePath);
-			Path lessPath = basePath.resolve(JS_ROOT + "less.js");
-			Path envPath = basePath.resolve(JS_ROOT + "env.js");
-			Path enginePath = basePath.resolve(JS_ROOT + "engine.js");
+
+			Path lessPath = basePath.resolve(LESS_ROOT + "less.js");
+			Path envPath = basePath.resolve(LESS_ROOT + "env.js");
+			Path enginePath = basePath.resolve(LESS_ROOT + "engine.js");
 
             ScriptEngineManager engineManager = new ScriptEngineManager();
             ScriptEngine nashornEngine = engineManager.getEngineByName("nashorn");
