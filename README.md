@@ -16,8 +16,8 @@ mvn clean compile assembly:single
 
 ## Support and License
 Currently support: 
-- lesscss 1.7.5 (unfortunately 2.x has been a major refactoring which will take some time to add nashorn support)
-- handlebars 2.0 (currently working on supporting 3.0.0)
+- **lesscss 1.7.5** Unfortunately lesscss 2.x major refactoring seems to make nashorn support harder, or at least different from previous 1.x versions. Consequently, quite a bit of work is needed, and not clear when we can get to it.
+- **handlebars 2.0** Currently working on supporting 3.x. Hopwefully handlebars 3.x refactoring did not make it java nashorn unfriendly.
 
 Licensed under the Apache License, Version 2.0 (the "License"): http://www.apache.org/licenses/LICENSE-2.0
 
