@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * <p>Very basic folder monitoring service.</p>
  *
- * <p>TODO: Needs to use the new java.nio WhatService capability.</p>
+ * <p>TODO: Needs to use the new java.nio Watch Service capability.</p>
  *
  * @author Jeremy Chone
  */
