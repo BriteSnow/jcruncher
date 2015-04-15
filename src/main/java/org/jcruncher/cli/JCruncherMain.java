@@ -24,7 +24,7 @@ import com.google.common.io.Files;
  * @author Jeremy Chone
  */
 public class JCruncherMain {
-    private static final String       version             = "0.9.4-SNAPSHOT";
+    private static final String       version             = "0.9.4";
     private static final String       LESS                = "--less";
     private static final String       HBS                 = "--hbs";
 
