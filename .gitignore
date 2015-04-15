@@ -7,6 +7,9 @@ test-js/
 bin/
 target/
 
+# ignore developer stuff
+dev/
+
 # ignore mac stuff
 .DS_Store
 
