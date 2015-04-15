@@ -18,7 +18,6 @@ public class HbsTest {
 
 		String templateStr = "<b>hello {{name}}</b>";
 		String templateFunc = hbsProcess.precompile(templateStr);
-		assertTrue(templateFunc.contains("return \"<b> hello\""));
-		//System.out.println("templateFunc: " + templateFunc);
+		assertTrue(templateFunc.contains("return \"<b>hello \""));
 	}
 }
