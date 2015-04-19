@@ -18,6 +18,7 @@ import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.common.io.Files;
+import org.jcruncher.Util;
 
 /**
  * 
@@ -88,6 +89,9 @@ public class JCruncherMain {
                         String l = br.readLine();
                         if ("q".equals(l)) {
                             System.exit(-1);
+                        } else if ("p".equals(l)) {
+                            Util.PerfCtx perfCtx = Util.startPerf();
+                            System.out.println("PERF: " + perfCtx.end());
                         } else if ("r".equals(l)) {
                             command.process(false);
                         }

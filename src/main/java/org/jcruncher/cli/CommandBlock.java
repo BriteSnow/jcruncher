@@ -68,7 +68,7 @@ public class CommandBlock {
         Processor proc = getProcessor();
         
         // --------- build the sources --------- //
-        List<File> sources = new ArrayList<File>();
+        List<File> sources = new ArrayList<>();
         FileType sourceType = getSourceType();
         File source = getSource();
         if (sourceType == FileType.FILE){

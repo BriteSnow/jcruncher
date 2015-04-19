@@ -52,4 +52,54 @@ public class Util {
 		return classpathBasePath;
 	}
 
+
+	static public long getUsedMemory(){
+		Runtime rt = Runtime.getRuntime();
+		long usedMB = (rt.totalMemory() - rt.freeMemory()) / 1024 / 1024;
+		return usedMB;
+	}
+
+	static public long getTotalMemory(){
+		return Runtime.getRuntime().totalMemory() / 1024 / 1024;
+	}
+
+	static public long getFreeMemory(){
+		return Runtime.getRuntime().freeMemory() / 1024 / 1024;
+	}
+
+	static public PerfCtx startPerf(){
+		return new PerfCtx();
+	}
+
+	public static class PerfCtx{
+		private final long startTime;
+		private final long startTotalMemory;
+		private final long startFreeMemory;
+
+		private long endTime;
+		private long endTotalMemory;
+		private long endFreeMemory;
+
+		PerfCtx(){
+			startTime = System.currentTimeMillis();
+			startTotalMemory = getTotalMemory();
+			startFreeMemory = getFreeMemory();
+		}
+
+		public PerfCtx end(){
+			endTime = System.currentTimeMillis();
+			endTotalMemory = getTotalMemory();
+			endFreeMemory = getFreeMemory();
+			return this;
+		}
+
+		public String toString(){
+			StringBuilder sb = new StringBuilder();
+			sb.append("Before MEM used/total: ").append(startTotalMemory - startFreeMemory).append("MB/").append(startTotalMemory).append("MB");
+			sb.append(" | After MEM used/total: ").append(endTotalMemory - endFreeMemory).append("MB/").append(endTotalMemory).append("MB");
+			sb.append(" | Duration: " + (endTime - startTime) + "ms");
+			return sb.toString();
+		}
+
+	}
 }

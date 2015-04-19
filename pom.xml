@@ -6,7 +6,7 @@
 	<groupId>org.jcruncher</groupId>
 	<artifactId>jcruncher</artifactId>
 	<packaging>jar</packaging>
-	<version>0.9.4</version>
+	<version>0.9.5-SNAPSHOT</version>
 	<name>jhandlebars</name>
 
 	<build>

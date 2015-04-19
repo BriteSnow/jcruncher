@@ -4,6 +4,8 @@
 
 package org.jcruncher.cli;
 
+import org.jcruncher.Util;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ import java.util.List;
  */
 public class Command {
 
-    private List<CommandBlock> blocks = new ArrayList<CommandBlock>();
+    private List<CommandBlock> blocks = new ArrayList<>();
 
     public boolean interactive = false;
     
@@ -29,18 +31,17 @@ public class Command {
     
     public void process(boolean asNeeded){
         for (CommandBlock block : blocks){
+            Util.PerfCtx perfCtx = Util.startPerf();
             block.process(asNeeded);
+            System.out.println("PERF: " + perfCtx.end());
+            System.out.println("");
         }
     }
-    
-    
+
     public List<CommandBlock> getBlocks(){
         return blocks;
     }
-    
-    
-    
-    
+
     public String toString(){
         StringBuilder sb = new StringBuilder();
         
