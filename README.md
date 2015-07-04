@@ -2,6 +2,10 @@
 
 Simple Java 8 library as well as command line (i.e. executable jar) to compile lesscss and handlebars using Java 8 Nashorn JS VM.
 
+## As Library
+
+jcruncher as an library (i.e. API) coming to maven central soon, but feel free to use the ```LessProcessor``` and ```HbsProcessor``` classes to compile lesscss or handlebars respectively. Make sure to reuse the Processor as they create their own Nashorn script environments. 
+
 ## As Executable Jar (i.e. jcruncherEx)
 
 [jcruncherEx download &amp; documentation](http://jcruncher.org/)
@@ -27,9 +31,7 @@ Licensed under the Apache License, Version 2.0 (the "License"): http://www.apach
 Note: Lesscss resource loading and exception handling java code was mostly copied from https://github.com/asual/lesscss-engine
 
 
-## As Library
 
-jcruncher as an library (i.e. API) is not finalized yet, but feel free to use the ```LessProcessor``` and ```HbsProcessor``` classes to compile lesscss or handlebars respectively. Make sure to reuse the Processor as they create their own Nashorn script environments. 
 
 #### Warning
 
